@@ -5,7 +5,6 @@ SOURCE_FILES := $(shell find $(MODULE_DIR) -name '*.c' -type f)
 OBJECT_FILES := $(patsubst $(CURRENT_DIR)/%,$(BUILD_DIR)/bootloader/%,$(SOURCE_FILES))
 OBJECT_FILES := $(addsuffix .o,$(OBJECT_FILES))
 
-# -fpic ???
 CC_FLAGS += -target x86_64-pc-win32-coff -I$(LIBRARIES_DIR)/zircon-efi
 LD_FLAGS += -subsystem:efi_application -dll
 

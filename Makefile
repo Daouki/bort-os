@@ -10,10 +10,11 @@ export CC  := clang
 export CXX := clang++
 export LD  := lld-link
 
-export QEMU := qemu-system-x86_64 -enable-kvm
-export QEMU_FLAGS := -drive format=raw,file=$(BUILD_DIR)/bort-os.iso                                \
+export QEMU := qemu-system-x86_64
+export QEMU_FLAGS := -enable-kvm                                                                    \
+                     -drive format=raw,file=$(BUILD_DIR)/bort-os.iso                                \
                      -drive if=pflash,format=raw,unit=0,file=$(BINARY_DIR)/OVMF_CODE.fd,readonly=on \
-					 -drive if=pflash,format=raw,unit=1,file=$(BINARY_DIR)/OVMF_VARS.fd
+                     -drive if=pflash,format=raw,unit=1,file=$(BINARY_DIR)/OVMF_VARS.fd
 
 export CC_FLAGS  := -std=c99 -Wall -Wextra -Wpedantic -fno-exceptions -fno-rtti -ffreestanding \
                     -flto -fno-stack-protector -fshort-wchar -mno-red-zone
